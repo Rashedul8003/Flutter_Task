@@ -1,1 +1,10 @@
-saaaaaaaaaaa
+TextField-> keyboardType: TextInputType.number,
+		textAlign: TextAlign.center,
+
+double exchangeRate = double.parse(result[0].value.toString());
+
+
+double basValue = double.parse(_textEditingController.text.toString());
+double terValue = double.parse(value[0].value.toString());
+double total = basValue * terValue;
+totalValue = total.toStringAsFixed(2).toString();
