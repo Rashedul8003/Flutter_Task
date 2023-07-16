@@ -45,6 +45,7 @@ import 'package:coustom_drawer/Widget/statefull_builder.dart';
 import 'package:coustom_drawer/Widget/stepper.dart';
 import 'package:coustom_drawer/Widget/tab_bar.dart';
 import 'package:coustom_drawer/Widget/table.dart';
+import 'package:coustom_drawer/raratV_information_task/list_of_infor.dart';
 import 'package:flutter/material.dart';
 
 class AllWidgetNavigationClass extends StatelessWidget {
@@ -448,6 +449,13 @@ class AllWidgetNavigationClass extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (builder) =>
                               SaveRemoveValueBySharedPreference()));
+                },
+              ),
+              ListTile(
+                title: Text('RahatVTask '),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => RahatVTask()));
                 },
               ),
             ],

@@ -10,7 +10,8 @@ class _PassDataFirstPage1State extends State<PassDataFirstPage1> {
   TextEditingController _name = TextEditingController();
   TextEditingController _email = TextEditingController();
   TextEditingController _phone = TextEditingController();
-  String? abc;
+  String? ab;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class _PassDataFirstPage1State extends State<PassDataFirstPage1> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Your Id is : $abc'),
+                Text('Your Id is : $ab'),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
@@ -53,7 +54,7 @@ class _PassDataFirstPage1State extends State<PassDataFirstPage1> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      abc = await Navigator.push(
+                      ab = await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (builder) => ScondPage2(
