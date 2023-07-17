@@ -11,6 +11,14 @@ class _PassDataFirstPage1State extends State<PassDataFirstPage1> {
   TextEditingController _email = TextEditingController();
   TextEditingController _phone = TextEditingController();
   String? ab;
+  void clearController(
+      [TextEditingController? name,
+      TextEditingController? email,
+      TextEditingController? phone]) {
+    name?.clear();
+    email?.clear();
+    phone?.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,7 @@ class _PassDataFirstPage1State extends State<PassDataFirstPage1> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Your Id is : $ab'),
+                Text('Your Id is : ${ab == null ? '' : ab}'),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
@@ -53,20 +61,26 @@ class _PassDataFirstPage1State extends State<PassDataFirstPage1> {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () async {
-                      ab = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (builder) => ScondPage2(
-                            name: _name.text,
-                            email: _email.text,
-                            phone: _phone.text,
-                          ),
+                  onPressed: () async {
+                    ab = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (builder) => ScondPage2(
+                          name: _name.text,
+                          email: _email.text,
+                          phone: _phone.text,
                         ),
-                      );
-                      setState(() {});
+                      ),
+                    );
+                    setState(() {});
+                  },
+                  child: Text('Go to next page'),
+                ),
+                TextButton(
+                    onPressed: () {
+                      clearController(_name, _email);
                     },
-                    child: Text('Go to next page'))
+                    child: Text('clear'))
               ],
             ),
           ),

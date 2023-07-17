@@ -1,6 +1,27 @@
 TextField-> keyboardType: TextInputType.number,
-		textAlign: TextAlign.center,
+		textInputAction: TextInputAction.go,
+                  onEditingComplete: () {
+                    _submitForm();
+                    print('onEditingComplete');
+                  },
 
+		textAlign: TextAlign.center,
+		focusNode: focusName, // ata holo specific feild focus er jonne use hoy
+		autovalidateMode: AutovalidateMode.onUserInteraction,  // jokhn type kora suru kore tokhn validation error chole jat
+		decoration: InputDecoration(
+                      labelText: 'Name :',
+                      hintText: 'Enter your Name :',
+                      hintStyle: TextStyle(color: Colors.black26),
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.person)),
+
+
+GestureDetector(  
+      onTap: () =>
+          FocusManager.instance.primaryFocus!.unfocus(), // hide keyboard
+")ata add hobe  
+
+	
 double exchangeRate = double.parse(result[0].value.toString());
 
 
@@ -8,3 +29,6 @@ double basValue = double.parse(_textEditingController.text.toString());
 double terValue = double.parse(value[0].value.toString());
 double total = basValue * terValue;
 totalValue = total.toStringAsFixed(2).toString();
+
+
+ 

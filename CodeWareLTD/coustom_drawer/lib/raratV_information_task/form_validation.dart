@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+// this code aslo okay just call class
 class MyFormPage extends StatefulWidget {
+  const MyFormPage({super.key});
+
   @override
   _MyFormPageState createState() => _MyFormPageState();
 }
@@ -12,16 +15,14 @@ class _MyFormPageState extends State<MyFormPage> {
   late String _mobile;
   late String _email;
   late String _password;
-  Map<String, dynamic> map_result = {};
+  Map<String, String> map_result = {};
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-
       map_result['name'] = _name;
       map_result['mobile'] = _mobile;
       map_result['email'] = _email;
       map_result['password'] = _password;
-
       // Perform desired action with form data
       print(map_result);
       Navigator.pop(context, map_result);
@@ -32,6 +33,11 @@ class _MyFormPageState extends State<MyFormPage> {
   final FocusNode focusMobile = FocusNode();
   final FocusNode focusEmail = FocusNode();
   final FocusNode focusPassword = FocusNode();
+  TextEditingController _textEditingController_name = TextEditingController();
+  TextEditingController _textEditingController_mobile = TextEditingController();
+  TextEditingController _textEditingController_email = TextEditingController();
+  TextEditingController _textEditingController_password =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +61,7 @@ class _MyFormPageState extends State<MyFormPage> {
                 TextFormField(
                   // autofocus ture korle nije nije keybord on hoia jay
                   //   autofocus: true,
+                  controller: _textEditingController_name,
                   textInputAction: TextInputAction.next,
                   focusNode: focusName,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -68,22 +75,17 @@ class _MyFormPageState extends State<MyFormPage> {
                     if (value == null || value.isEmpty) {
                       FocusScope.of(context).requestFocus(focusName);
 
-                      return 'Please enter a nameaa';
+                      return 'Please enter a name';
                     }
                     return null;
                   },
                   onSaved: (value) {
                     _name = value!;
                   },
-                  onTap: () {
-                    setState(() {
-                      setState(() {});
-                      print('onTab');
-                    });
-                  },
                 ),
                 SizedBox(height: 16.0),
                 TextFormField(
+                  controller: _textEditingController_mobile,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   focusNode: focusMobile,
                   keyboardType: TextInputType.number,
@@ -106,6 +108,7 @@ class _MyFormPageState extends State<MyFormPage> {
                 ),
                 SizedBox(height: 16.0),
                 TextFormField(
+                  controller: _textEditingController_email,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
@@ -130,6 +133,7 @@ class _MyFormPageState extends State<MyFormPage> {
                 ),
                 SizedBox(height: 16.0),
                 TextFormField(
+                  controller: _textEditingController_password,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   textInputAction: TextInputAction.go,
                   onEditingComplete: () {
