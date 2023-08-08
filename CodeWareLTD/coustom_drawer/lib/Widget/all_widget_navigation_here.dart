@@ -4,6 +4,7 @@ import 'package:coustom_drawer/NewsApp/ui/home.dart';
 import 'package:coustom_drawer/PassDataOnePageToOther/one_page.dart';
 import 'package:coustom_drawer/Provider/To%20do%20list/main.dart';
 import 'package:coustom_drawer/SharedPreperance/save_remove_value.dart';
+import 'package:coustom_drawer/Widget/absorb_pointer.dart';
 import 'package:coustom_drawer/Widget/alert_dialog.dart';
 import 'package:coustom_drawer/Widget/aspect_ratio.dart';
 import 'package:coustom_drawer/Widget/autocomplete.dart';
@@ -60,6 +61,15 @@ class AllWidgetNavigationClass extends StatelessWidget {
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ListTile(
+                title: Text('Absorb Pointer'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => AbsorbPointerClass()));
+                },
+              ),
               ListTile(
                 title: Text('Aspect Ratio '),
                 onTap: () {

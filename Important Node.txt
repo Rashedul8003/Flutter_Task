@@ -31,4 +31,10 @@ double total = basValue * terValue;
 totalValue = total.toStringAsFixed(2).toString();
 
 
+
+https://www.youtube.com/playlist?list=PLuOv00llTY-HqANTmt5UU9W_gBjVWrcpT     // this is the map project link
+
+// for splash screen 
+flutter pub run flutter_native_splash:create
+
  

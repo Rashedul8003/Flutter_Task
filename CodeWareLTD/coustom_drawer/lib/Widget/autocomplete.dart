@@ -20,14 +20,16 @@ class AutocompleteClass extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Autocomplete<String>(
+          child: Autocomplete(
             optionsBuilder: (TextEditingValue textEditingValue) {
               if (textEditingValue.text == '') {
                 return const Iterable<String>.empty();
               }
-              return listItems.where((String item) {
-                return item.contains(textEditingValue.text.toLowerCase());
-              });
+              return listItems.where(
+                (String item) {
+                  return item.contains(textEditingValue.text.toLowerCase());
+                },
+              );
             },
             onSelected: (String item) {
               print('The $item was selected');
